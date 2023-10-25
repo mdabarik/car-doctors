@@ -1,10 +1,11 @@
+import About from "./About";
 import Banner from "./Banner/Banner";
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            This is home page
+            <About></About>
         </div>
     );
 };
