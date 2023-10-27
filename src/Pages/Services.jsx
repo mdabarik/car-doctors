@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import Service from "./Service";
 
@@ -6,6 +7,15 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
+        // axios.get('http://localhost:5500/services')
+        // .then(data => {
+        //     setServices(data);
+        //     console.log(services);
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        //     console.log('hello');
+        // })
         fetch('http://localhost:5500/services')
         .then(res => res.json())
         .then(data => {
@@ -24,10 +34,13 @@ const Services = () => {
                 <h2 className="text-4xl font-bold">Our Services Area</h2>
                 <p>the majority have suffered alteration in some form, by injected humour, or randomised <br /> words which do not look even slightly believable. </p>
                 <p>Services: {services.length}</p>
+                {
+                    console.log(services)
+                }
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
                     
                     {
-                        services.map(service => <Service key={service._id} service={service}></Service>)
+                        services?.map(service => <Service key={service._id} service={service}></Service>)
                     }
                 </div>
             </div>
